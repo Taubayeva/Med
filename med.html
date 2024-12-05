@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медицинская информация</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        .search {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .search input {
+            padding: 10px;
+            width: 80%;
+            max-width: 600px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .diseases {
+            padding: 20px;
+        }
+
+        .disease {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .disease h3 {
+            margin-top: 0;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Медицинская информация</h1>
+        <p>Получите информацию о распространенных заболеваниях и их симптомах</p>
+    </header>
+
+    <section class="search">
+        <input type="text" id="search" placeholder="Искать по симптомам..." onkeyup="searchDiseases()">
+    </section>
+
+    <section class="diseases">
+        <h2>Заболевания</h2>
+        <div class="disease" data-name="Грипп">
+            <h3>Грипп</h3>
+            <p><strong>Симптомы:</strong> высокая температура, кашель, боль в горле, головная боль, усталость.</p>
+            <p><strong>Лечение:</strong> отдых, обильное питье, жаропонижающие препараты.</p>
+        </div>
+        <div class="disease" data-name="ОРВИ">
+            <h3>ОРВИ</h3>
+            <p><strong>Симптомы:</strong> насморк, кашель, головная боль, слабость.</p>
+            <p><strong>Лечение:</strong> жаропонижающие, ингаляции, полоскания горла.</p>
+        </div>
+        <div class="disease" data-name="Диабет">
+            <h3>Диабет</h3>
+            <p><strong>Симптомы:</strong> жажда, частое мочеиспускание, усталость.</p>
+            <p><strong>Лечение:</strong> контроль уровня сахара в крови, инсулинотерапия.</p>
+        </div>
+        <div class="disease" data-name="Гастрит">
+            <h3>Гастрит</h3>
+            <p><strong>Симптомы:</strong> боль в животе, тошнота, изжога.</p>
+            <p><strong>Лечение:</strong> диета, антисекреторные препараты.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Медицинская информация</p>
+    </footer>
+
+    <script>
+        function searchDiseases() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let diseases = document.querySelectorAll('.disease');
+            
+            diseases.forEach(function(disease) {
+                let name = disease.getAttribute('data-name').toLowerCase();
+                if (name.includes(input)) {
+                    disease.style.display = 'block';
+                } else {
+                    disease.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
